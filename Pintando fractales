@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+int pinta(int n, int &total) {
+
+	if (n == 0) {
+		return  0;
+	}
+
+	if (n == 1) {
+		return  4;
+	}
+	
+	return  n * 4 + 4 * (pinta(n / 2, total));
+}
+
+bool resuelve() {
+	int i = 0, longitud;
+
+	cin >> longitud;
+
+	if (!cin)
+		return false;
+
+	cout << pinta(longitud, i) << endl;
+
+	return true;
+}
+
+int main() {
+
+	while (resuelve());
+
+	return 0;
+}
