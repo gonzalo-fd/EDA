@@ -1,0 +1,47 @@
+#include <iostream>
+#include <string> 
+using namespace std;
+
+void suma(int n, int sumando, int &resultado, string &sumandos) {
+	
+	if (n == 0) {
+		resultado += sumando;
+		sumandos = to_string(sumando) + " + " + sumandos;
+	}
+	else {
+		sumandos = to_string(sumando) + " + " + sumandos;
+
+		resultado += sumando;
+		sumando = n % 10;
+
+		suma(n / 10, sumando, resultado, sumandos);
+	}
+}
+
+bool resuelve() {
+
+	int n, resultado = 0, sumando;
+	string sumandos = "";
+
+	cin >> n;
+
+	if (n < 0)
+		return false;
+
+	sumando = n % 10;
+	n /= 10;
+	
+	suma(n, sumando, resultado, sumandos);
+	sumandos.pop_back();
+	sumandos.pop_back();
+	cout << sumandos << "= " << resultado << endl;
+
+	return true;
+}
+
+int main() {
+
+	while (resuelve());
+
+	return 0;
+}
