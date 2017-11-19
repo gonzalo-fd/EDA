@@ -1,0 +1,29 @@
+#include<iostream>
+using namespace std;
+
+bool resuelve() {
+
+	int n;
+	int mayor = 0, aux;
+
+	cin >> n;
+
+	if (!cin)
+		return false;
+
+	for (int i = 0; i < n; i++)
+	{
+		cin >> aux;
+		if (aux > mayor)
+			mayor = aux;
+	}
+	cout << mayor << endl;
+	return true;
+}
+
+int main() {
+
+	while (resuelve());
+
+  return 0;
+}
