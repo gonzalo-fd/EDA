@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+
+int loteria(int n, int v[]){
+
+int decimos = 0;
+
+for (int i = 0; i < n; ++i)
+{
+	if((v[i]%2) == 0)
+		decimos++;
+		
+}
+return decimos;
+}
+
+bool resuelve(){
+
+	int casos, n, decimos, v[10000];
+
+	cin >> casos;
+
+	for (int i = 0; i < casos; ++i)
+	{
+		cin >> n;
+
+		for (int i = 0; i < n; ++i)
+		{
+			cin >> decimos;
+			v[i] = decimos;
+		}
+		cout << loteria(n, v) << endl;
+	}
+	return false;
+}
+
+int main(){
+	
+	while(resuelve());
+
+	return 0;
+}
