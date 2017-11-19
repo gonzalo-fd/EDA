@@ -1,0 +1,59 @@
+#include <iostream>
+using namespace std;
+
+void cine(int n, int v[], bool &ok, int &asiento){
+
+int cont = 0;
+bool pares = true;
+ok = true;
+
+for (int i = 0; i < n; ++i)
+{
+	if((v[i]%2) == 0){
+		cont++;
+		if(!pares){
+			ok = false;
+		}
+	}
+	else if ((v[i]%2) == 1){
+		pares = false;
+	}
+		
+}
+asiento = cont;
+}
+
+bool resuelve(){
+
+	int casos, n , butacas, v[10000], asiento = 0;
+	bool ok = true;
+
+	cin >> casos;
+
+	for (int i = 0; i < casos; ++i)
+	{
+		cin >> n;
+
+		for (int i = 0; i < n; ++i)
+		{
+			cin >> butacas;
+			v[i] = butacas;
+		}
+		cine(n, v, ok, asiento);
+			if(ok){
+				cout << "SI " << asiento << endl; 
+			}
+			else{
+				cout << "NO" << endl;
+			}
+
+	}
+	return false;
+}
+
+int main(){
+	
+	while(resuelve());
+
+	return 0;
+}
