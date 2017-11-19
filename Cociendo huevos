@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+int minutos(int huevos, int capacidad){
+	int minutos = 10;
+
+	while(huevos > capacidad){
+		huevos -= capacidad;
+		minutos +=10;
+	}
+
+
+	return minutos;
+}
+
+bool resuelve(){
+
+int huevos, capacidad;
+
+cin >> huevos;
+cin >> capacidad;
+
+if(huevos == 0 && capacidad == 0)
+	return false;
+cout << minutos(huevos, capacidad) <<endl;
+
+return true;
+}
+
+int main(){
+	
+	while (resuelve()){};
+
+	return 0;
+}
